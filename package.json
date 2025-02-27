@@ -1,0 +1,55 @@
+{
+  "name": "gemini-token-estimator",
+  "version": "0.1.0",
+  "description": "Estimate the number of tokens for Gemini models",
+  "author": "GovSpend",
+  "repository": "",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "prepare": "npm run lint && npm test && npm run build",
+    "clean": "rm -rf dist",
+    "build": "npm run clean && tsc --declaration",
+    "build:watch": "tsc --watch",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "lint": "eslint src/**"
+  },
+  "keywords": [
+    "token",
+    "estimator",
+    "estimate",
+    "estimation",
+    "gemini",
+    "gemma",
+    "flash",
+    "pro",
+    "model",
+    "ai",
+    "ml",
+    "machine",
+    "learning",
+    "artificial",
+    "intelligence"
+  ],
+  "license": "ISC",
+  "prettier": {
+    "semi": false,
+    "singleQuote": true,
+    "trailingComma": "es5",
+    "plugins": ["@trivago/prettier-plugin-sort-imports"],
+    "importOrder": ["^[./]"],
+    "importOrderSortSpecifiers": true,
+    "importOrderCaseInsensitive": true,
+    "importOrderSeparation": true
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@trivago/prettier-plugin-sort-imports": "^5.2.2",
+    "@types/debug": "^4.1.12",
+    "@typescript-eslint/eslint-plugin": "^8.22.0",
+    "prettier": "^3.4.2",
+    "typescript": "^5.7.3",
+    "vitest": "^3.0.4"
+  }
+}
