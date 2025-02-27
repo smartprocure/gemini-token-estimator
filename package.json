@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "description": "Estimate the number of tokens for Gemini models",
   "author": "GovSpend",
-  "repository": "",
+  "repository": "https://github.com/smartprocure/gemini-token-estimator",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
