@@ -47,7 +47,7 @@ const combinedPattern = new RegExp(
  * @example
  * const tokens = tokenize('Hello, world!')
  * console.log(tokens)
- * Output: ['Hello', ',', 'world', '!']
+ * Output: ['Hello', ',', ' world', '!']
  */
 export const tokenize = (input: string): string[] =>
   input.match(combinedPattern) || []
