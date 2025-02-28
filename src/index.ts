@@ -6,6 +6,7 @@ const uppercaseWord =
 
 const titlecaseWord = /[ ]?[A-ZÀÁÂÄÈÉÊËÌÍÎÏÒÓÔÖÙÚÛÜÝŸÆŒÇÑ][a-zàáâäèéêëìíîïòóôöùúûüýÿæœßçñ]{1,8}/
 
+// Sequences of consonants that are common and should be treated as a single token
 const commonAbbreviations =
   /pdf|png|http(?:s)?|rfp|www|PDF|PNG|HTTP|HTTP(?:S)?|RFP|WWW/
 
