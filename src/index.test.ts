@@ -53,10 +53,10 @@ describe('tokenize', () => {
   })
   it('should tokenize unicode characters', () => {
     expect(tokenize('©®♥')).toEqual(['©', '®', '♥'])
+    expect(tokenize('')).toEqual(['', ''])
     expect(tokenize('��������')).toEqual(['�����','���'])
   })
   it('should tokenize non-Latin characters', () => {
-    console.dir(tokenize('використання порталу постачальників'))
     expect(tokenize('використання порталу постачальників')).toEqual([
       'викор',
       'истан',

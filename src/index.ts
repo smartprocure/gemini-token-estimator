@@ -12,6 +12,9 @@ const commonAbbreviationsRegex =
 // Match anything that's not in common Latin character ranges
 const nonLatinRegex = /[ ]?[^\u0000-\u007F\u00A0-\u00FF\u0100-\u017F]{1,5}/
 
+// Characters that should be treated as a single token
+const singleTokenChars = //
+
 const regexPatterns = [
   /\d/, // Single digit
   /\n+/, // One or more newlines
@@ -19,6 +22,7 @@ const regexPatterns = [
   /\t+/, // One or more tabs
   /\v+/, // One or more vertical tabs
   /\f+/, // One or more form feeds
+  singleTokenChars, // Characters that should be treated as a single token
   commonAbbreviationsRegex, // Common abbreviations
   lowercaseWordRegex, // Lowercase word
   titlecaseWordRegex, // Titlecase word

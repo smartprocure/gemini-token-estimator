@@ -1,3 +1,7 @@
+# 0.4.0
+
+- Handle this character properly: 
+
 # 0.3.0
 
 - Properly handle French, German, and Spanish characters.
