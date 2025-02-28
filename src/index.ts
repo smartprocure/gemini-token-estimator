@@ -1,16 +1,16 @@
-const lowercaseEnglishRegex =
-  /[ ]?(?:[bcdfghjklmnpqrstvwxz]{0,3}[aeiouy]{1,3}[bcdfghjklmnpqrstvwxz]{0,3}){1,3}/
+const lowercaseWordRegex =
+  /[ ]?(?:[bcdfghjklmnpqrstvwxzßçñ]{0,3}[aeiouyàáâäèéêëìíîïòóôöùúûüýÿæœ]{1,3}[bcdfghjklmnpqrstvwxzßçñ]{0,3}){1,3}/
 
-const uppercaseEnglishRegex =
-  /[ ]?(?:[BCDFGHJKLMNPQRSTVWXZ]{0,3}[AEIOUY]{1,3}[BCDFGHJKLMNPQRSTVWXZ]{0,3}){1,3}/
+const uppercaseWordRegex =
+  /[ ]?(?:[BCDFGHJKLMNPQRSTVWXZÇÑ]{0,3}[AEIOUYÀÁÂÄÈÉÊËÌÍÎÏÒÓÔÖÙÚÛÜÝŸÆŒ]{1,3}[BCDFGHJKLMNPQRSTVWXZÇÑ]{0,3}){1,3}/
 
-const titlecaseEnglishRegex = /[ ]?[A-Z][a-z]{1,8}/
+const titlecaseWordRegex = /[ ]?[A-ZÀÁÂÄÈÉÊËÌÍÎÏÒÓÔÖÙÚÛÜÝŸÆŒÇÑ][a-zàáâäèéêëìíîïòóôöùúûüýÿæœßçñ]{1,8}/
 
 const commonAbbreviationsRegex =
   /pdf|png|http(?:s)?|rfp|www|PDF|PNG|HTTP|HTTP(?:S)?|RFP|WWW/
 
 // Match anything that's not in common Latin character ranges
-const nonLatinRegex = /[^\u0000-\u007F\u00A0-\u00FF\u0100-\u017F]+/
+const nonLatinRegex = /[ ]?[^\u0000-\u007F\u00A0-\u00FF\u0100-\u017F]{1,5}/
 
 const regexPatterns = [
   /\d/, // Single digit
@@ -20,11 +20,11 @@ const regexPatterns = [
   /\v+/, // One or more vertical tabs
   /\f+/, // One or more form feeds
   commonAbbreviationsRegex, // Common abbreviations
-  lowercaseEnglishRegex, // Lowercase English words
-  titlecaseEnglishRegex, // Titlecase English words
-  uppercaseEnglishRegex, // Uppercase English words
-  /[bcdfghjklmnpqrstvwxz]{1,2}/, // One or two consonants
-  /[BCDFGHJKLMNPQRSTVWXZ]{1,2}/, // One or two uppercase consonants
+  lowercaseWordRegex, // Lowercase word
+  titlecaseWordRegex, // Titlecase word
+  uppercaseWordRegex, // Uppercase word
+  /[bcdfghjklmnpqrstvwxzßçñ]{1,2}/, // One or two consonants
+  /[BCDFGHJKLMNPQRSTVWXZÇÑ]{1,2}/, // One or two uppercase consonants
   nonLatinRegex,
   /\(\)/, // Parentheses
   /\[\]/, // Brackets
