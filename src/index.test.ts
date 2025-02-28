@@ -36,8 +36,8 @@ describe('tokenize', () => {
     expect(tokenize('Aaaaaaaaaaa')).toEqual(['Aaaaaaaaa', 'aa'])
     expect(tokenize('aaaaaaaaaaa')).toEqual(['aaaaaaaaa', 'aa'])
     expect(tokenize('AAAAAAAAAAA')).toEqual(['AAAAAAAAA', 'AA'])
-    expect(tokenize('bcdfgh')).toEqual([ 'bc', 'df', 'gh' ])
-    expect(tokenize('BCDFGH')).toEqual([ 'BC', 'DF', 'GH' ])
+    expect(tokenize('bcdfgh')).toEqual(['bc', 'df', 'gh'])
+    expect(tokenize('BCDFGH')).toEqual(['BC', 'DF', 'GH'])
     // Repeated special characters
     expect(tokenize('------------------')).toEqual(['----------------', '--'])
     expect(tokenize('..................')).toEqual(['................', '..'])
@@ -49,6 +49,15 @@ describe('tokenize', () => {
     expect(tokenize('[]{}()')).toEqual(['[]', '{}', '()'])
     // Unicode characters
     expect(tokenize('©®♥')).toEqual(['©', '®', '♥'])
+    expect(tokenize('��������')).toEqual(['��������'])
+    // Non-Latin characters
+    expect(tokenize('використання порталу постачальників')).toEqual([
+      'використання',
+      ' ',
+      'порталу',
+      ' ',
+      'постачальників',
+    ])
   })
   it('should preserve all chracters when tokenizing', () => {
     expect(tokenize(JSON).join('')).toEqual(JSON)

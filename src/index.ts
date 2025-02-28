@@ -6,7 +6,11 @@ const uppercaseEnglishRegex =
 
 const titlecaseEnglishRegex = /[ ]?[A-Z][a-z]{1,8}/
 
-const commonAbbreviationsRegex = /pdf|png|http(?:s)?|rfp|www|PDF|PNG|HTTP|HTTP(?:S)?|RFP|WWW/
+const commonAbbreviationsRegex =
+  /pdf|png|http(?:s)?|rfp|www|PDF|PNG|HTTP|HTTP(?:S)?|RFP|WWW/
+
+// Match anything that's not in common Latin character ranges
+const nonLatinRegex = /[^\u0000-\u007F\u00A0-\u00FF\u0100-\u017F]+/
 
 const regexPatterns = [
   /\d/, // Single digit
@@ -21,6 +25,7 @@ const regexPatterns = [
   uppercaseEnglishRegex, // Uppercase English words
   /[bcdfghjklmnpqrstvwxz]{1,2}/, // One or two consonants
   /[BCDFGHJKLMNPQRSTVWXZ]{1,2}/, // One or two uppercase consonants
+  nonLatinRegex,
   /\(\)/, // Parentheses
   /\[\]/, // Brackets
   /\{\}/, // Braces
@@ -33,7 +38,7 @@ const regexPatterns = [
 // Combine all patterns with the 'g' flag for global matching
 const combinedPattern = new RegExp(
   regexPatterns.map((pattern) => pattern.source).join('|'),
-  'g',
+  'g'
 )
 /**
  * Tokenize a string similar to Gemma's tokenizer
