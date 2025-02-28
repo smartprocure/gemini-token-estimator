@@ -53,7 +53,7 @@ describe('tokenize', () => {
   })
   it('should tokenize unicode characters', () => {
     expect(tokenize('©®♥')).toEqual(['©', '®', '♥'])
-    expect(tokenize('')).toEqual(['', '', '', '', '', '', ''])
+    expect(tokenize(' ')).toEqual(['', '', '', ' ', '', '', ''])
     expect(tokenize('��������')).toEqual(['�����', '���'])
   })
   it('should tokenize non-Latin characters', () => {

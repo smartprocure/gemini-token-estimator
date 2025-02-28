@@ -11,9 +11,9 @@ const titlecaseWord =
 const commonAbbreviations =
   /pdf|png|http(?:s)?|rfp|www|PDF|PNG|HTTP|HTTP(?:S)?|RFP|WWW/
 
-// Match anything that's not in common Latin character ranges
+// Match anything that's not in common Latin character ranges and not in private use area
 const nonLatinWord =
-  /[ ]?[^\u0000-\u007F\u00A0-\u00FF\u0100-\u017F]{1,5}/
+  /[ ]?[^\u0000-\u007F\u00A0-\u00FF\u0100-\u017F\ue000-\uf8ff]{1,5}/
 
 const regexPatterns = [
   /\d/, // Single digit
