@@ -1,16 +1,16 @@
-const lowercaseWordRegex =
+const lowercaseWord =
   /[ ]?(?:[bcdfghjklmnpqrstvwxzßçñ]{0,3}[aeiouyàáâäèéêëìíîïòóôöùúûüýÿæœ]{1,3}[bcdfghjklmnpqrstvwxzßçñ]{0,3}){1,3}/
 
-const uppercaseWordRegex =
+const uppercaseWord =
   /[ ]?(?:[BCDFGHJKLMNPQRSTVWXZÇÑ]{0,3}[AEIOUYÀÁÂÄÈÉÊËÌÍÎÏÒÓÔÖÙÚÛÜÝŸÆŒ]{1,3}[BCDFGHJKLMNPQRSTVWXZÇÑ]{0,3}){1,3}/
 
-const titlecaseWordRegex = /[ ]?[A-ZÀÁÂÄÈÉÊËÌÍÎÏÒÓÔÖÙÚÛÜÝŸÆŒÇÑ][a-zàáâäèéêëìíîïòóôöùúûüýÿæœßçñ]{1,8}/
+const titlecaseWord = /[ ]?[A-ZÀÁÂÄÈÉÊËÌÍÎÏÒÓÔÖÙÚÛÜÝŸÆŒÇÑ][a-zàáâäèéêëìíîïòóôöùúûüýÿæœßçñ]{1,8}/
 
-const commonAbbreviationsRegex =
+const commonAbbreviations =
   /pdf|png|http(?:s)?|rfp|www|PDF|PNG|HTTP|HTTP(?:S)?|RFP|WWW/
 
 // Match anything that's not in common Latin character ranges
-const nonLatinRegex = /[ ]?[^\u0000-\u007F\u00A0-\u00FF\u0100-\u017F]{1,5}/
+const nonLatinWord = /[ ]?[^\u0000-\u007F\u00A0-\u00FF\u0100-\u017F]{1,5}/
 
 // Characters that should be treated as a single token
 const singleTokenChars = //
@@ -23,13 +23,13 @@ const regexPatterns = [
   /\v+/, // One or more vertical tabs
   /\f+/, // One or more form feeds
   singleTokenChars, // Characters that should be treated as a single token
-  commonAbbreviationsRegex, // Common abbreviations
-  lowercaseWordRegex, // Lowercase word
-  titlecaseWordRegex, // Titlecase word
-  uppercaseWordRegex, // Uppercase word
+  commonAbbreviations, // Common abbreviations
+  lowercaseWord, // Lowercase word
+  titlecaseWord, // Titlecase word
+  uppercaseWord, // Uppercase word
   /[bcdfghjklmnpqrstvwxzßçñ]{1,2}/, // One or two consonants
   /[BCDFGHJKLMNPQRSTVWXZÇÑ]{1,2}/, // One or two uppercase consonants
-  nonLatinRegex,
+  nonLatinWord,
   /\(\)/, // Parentheses
   /\[\]/, // Brackets
   /\{\}/, // Braces
