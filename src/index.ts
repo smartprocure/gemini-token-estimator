@@ -4,17 +4,16 @@ const lowercaseWord =
 const uppercaseWord =
   /[ ]?(?:[BCDFGHJKLMNPQRSTVWXZÇÑ]{0,3}[AEIOUYÀÁÂÄÈÉÊËÌÍÎÏÒÓÔÖÙÚÛÜÝŸÆŒ]{1,3}[BCDFGHJKLMNPQRSTVWXZÇÑ]{0,3}){1,3}/
 
-const titlecaseWord = /[ ]?[A-ZÀÁÂÄÈÉÊËÌÍÎÏÒÓÔÖÙÚÛÜÝŸÆŒÇÑ][a-zàáâäèéêëìíîïòóôöùúûüýÿæœßçñ]{1,8}/
+const titlecaseWord =
+  /[ ]?[A-ZÀÁÂÄÈÉÊËÌÍÎÏÒÓÔÖÙÚÛÜÝŸÆŒÇÑ][a-zàáâäèéêëìíîïòóôöùúûüýÿæœßçñ]{1,8}/
 
 // Sequences of consonants that are common and should be treated as a single token
 const commonAbbreviations =
   /pdf|png|http(?:s)?|rfp|www|PDF|PNG|HTTP|HTTP(?:S)?|RFP|WWW/
 
 // Match anything that's not in common Latin character ranges
-const nonLatinWord = /[ ]?[^\u0000-\u007F\u00A0-\u00FF\u0100-\u017F]{1,5}/
-
-// Characters that should be treated as a single token
-const singleTokenChars = //
+const nonLatinWord =
+  /[ ]?[^\u0000-\u007F\u00A0-\u00FF\u0100-\u017F]{1,5}/
 
 const regexPatterns = [
   /\d/, // Single digit
@@ -23,7 +22,7 @@ const regexPatterns = [
   /\t+/, // One or more tabs
   /\v+/, // One or more vertical tabs
   /\f+/, // One or more form feeds
-  singleTokenChars, // Characters that should be treated as a single token
+  /[\ue000-\uf8ff]/, // Private use area
   commonAbbreviations, // Common abbreviations
   lowercaseWord, // Lowercase word
   titlecaseWord, // Titlecase word
@@ -37,7 +36,7 @@ const regexPatterns = [
   /([.=#_-])\1{1,15}/, // Handle repeated special characters with lengths of up to 16
   /[ ]?[!@#$%^&*()_+\-=\[\]{}\\|;:'",.<>/?`~]{1,3}/, // One to three special characters
   /[ ]+/, // One or more spaces
-  /./, // Any other character, including weird unicode characters
+  /./, // Any other character
 ]
 
 // Combine all patterns with the 'g' flag for global matching

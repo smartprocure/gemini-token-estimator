@@ -1,3 +1,7 @@
+# 0.5.0
+
+- Handle this character properly: 
+
 # 0.4.0
 
 - Handle this character properly: 
